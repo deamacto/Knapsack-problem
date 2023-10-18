@@ -1,5 +1,3 @@
-package org.example;
-
 import io.jenetics.*;
 import io.jenetics.engine.Engine;
 import io.jenetics.engine.EvolutionStatistics;

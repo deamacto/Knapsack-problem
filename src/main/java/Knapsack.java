@@ -1,5 +1,3 @@
-package org.example;
-
 import io.jenetics.BitGene;
 import io.jenetics.engine.Codec;
 import io.jenetics.engine.Codecs;

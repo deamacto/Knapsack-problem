@@ -12,26 +12,33 @@ public class Main {
     public static void main(final String[] args) {
         final Knapsack knapsack = Knapsack.randomOf(200, new Random(123));
 
-        var testKnapsack = new Knapsack(ISeq.of(
+        Knapsack testKnapsack = new Knapsack(ISeq.of(
                 new Item(1, 10),
                 new Item(1, 10),
                 new Item(2, 15),
                 new Item(3, 40)
         ), 2);
 
+        for(int i = 0; i < 5; i++) {
+            mainLoop(knapsack);
+            System.out.println("\n");
+        }
+    }
+
+    public static void mainLoop(Knapsack knapsack) {
         final Engine<BitGene, Double> engine = Engine.builder(knapsack)
                 .populationSize(500)
                 .survivorsSelector(new TournamentSelector<>(5))
                 .offspringSelector(new RouletteWheelSelector<>())
                 .alterers(
-                        new Mutator<>(0.915),
-                        new SinglePointCrossover<>(0.16))
+                        new Mutator<>(0.2),
+                        new SinglePointCrossover<>(0.9))
                 .build();
 
         final EvolutionStatistics<Double, ?> statistics = EvolutionStatistics.ofNumber();
 
         final Phenotype<BitGene, Double> best = engine.stream()
-                .limit(bySteadyFitness(7))
+//                .limit(bySteadyFitness(50))
                 .limit(1000)
                 .peek(statistics)
                 .collect(toBestPhenotype());

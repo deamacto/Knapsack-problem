@@ -10,7 +10,8 @@ import static io.jenetics.engine.Limits.bySteadyFitness;
 
 public class Main {
     public static void main(final String[] args) {
-        final Knapsack knapsack = Knapsack.randomOf(200, new Random(123));
+        //final Knapsack knapsack = Knapsack.randomOf(200, new Random(123));
+        final Knapsack knapsack = DataReader.readItems("src/main/f8_l-d_kp_23_10000");
 
         Knapsack testKnapsack = new Knapsack(ISeq.of(
                 new Item(1, 10),

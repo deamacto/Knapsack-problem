@@ -1,3 +1,5 @@
+package domain;
+
 import io.jenetics.internal.util.Requires;
 
 import java.util.random.RandomGenerator;

@@ -87,6 +87,6 @@ public class MyKnapsackProblem extends Problem {
 
     @Override
     public String toString() {
-        return thiagodnf.jacof.problem.kp.KnapsackProblem.class.getSimpleName();
+        return "My Knapsack problem";
     }
 }
